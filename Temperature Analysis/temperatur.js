@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
             d.Day = +d.Day;
         });
 
-        let width = 900, height = 500, margin = { top: 50, right: 50, bottom: 60, left: 70 };
+        let width = 900, height = 500, margin = { top: 50, right: 120, bottom: 80, left: 80 };
 
         let svg = d3.select("#temperatureChart")
             .append("svg")
@@ -20,26 +20,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
         svg.append("g")
             .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
-            .call(d3.axisBottom(x).ticks(10))
-            .append("text")
-            .attr("x", (width - margin.left - margin.right) / 2)
-            .attr("y", 40)
-            .attr("fill", "black")
-            .attr("text-anchor", "middle")
-            .attr("font-size", "14px")
-            .text("Minutes of the Day");
+            .call(d3.axisBottom(x).ticks(10));
 
         svg.append("g")
-            .call(d3.axisLeft(y))
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("x", -((height - margin.top - margin.bottom) / 2))
-            .attr("y", -50)
-            .attr("fill", "black")
-            .attr("text-anchor", "middle")
-            .attr("font-size", "14px")
-            .text("Body Temperature (°C)");
+            .call(d3.axisLeft(y));
 
+        // Tooltip
+        let tooltip = d3.select("body").append("div")
+            .style("position", "absolute")
+            .style("background", "white")
+            .style("border", "1px solid black")
+            .style("padding", "5px")
+            .style("border-radius", "5px")
+            .style("visibility", "hidden");
+
+        // Line chart
         svg.append("path")
             .datum(data)
             .attr("fill", "none")
@@ -49,5 +44,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 .x(d => x(d.Minute))
                 .y(d => y(d.Temperature))
             );
+
+        // Interactive circles on line
+        svg.selectAll(".temp-dot")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", d => x(d.Minute))
+            .attr("cy", d => y(d.Temperature))
+            .attr("r", 4)
+            .attr("fill", "red")
+            .attr("opacity", 0.7)
+            .on("mouseover", function (event, d) {
+                tooltip.style("visibility", "visible")
+                    .html(`Minute: ${d.Minute} <br> Temp: ${d.Temperature}°C`)
+                    .style("top", `${event.pageY - 10}px`)
+                    .style("left", `${event.pageX + 10}px`);
+                d3.select(this).attr("r", 7).attr("fill", "blue");
+            })
+            .on("mouseout", function () {
+                tooltip.style("visibility", "hidden");
+                d3.select(this).attr("r", 4).attr("fill", "red");
+            });
+
     }).catch(error => console.error("Error loading CSV:", error));
 });

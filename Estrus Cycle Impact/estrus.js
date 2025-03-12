@@ -2,15 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     d3.csv("../assets/data/mouse_data.csv").then(function (data) {
         data.forEach(d => {
             d.Minute = +d.Minute;
-            d.Temperature = +d.Temperature;
             d.Activity = +d.Activity;
             d.Day = +d.Day;
-            d.Estrus = d.Day % 4 === 2 ? "Estrus" : "Non-Estrus"; // Assuming Estrus occurs every 4 days
         });
 
-        let width = 900, height = 500, margin = { top: 50, right: 50, bottom: 60, left: 70 };
+        let width = 900, height = 500, margin = { top: 50, right: 120, bottom: 80, left: 80 };
 
-        let svg = d3.select("#estrusChart")
+        let svg = d3.select("#activityChart")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
@@ -18,40 +16,62 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
         let x = d3.scaleLinear().domain([0, 1440]).range([0, width - margin.left - margin.right]);
-        let y = d3.scaleLinear().domain([d3.min(data, d => d.Temperature), d3.max(data, d => d.Temperature)]).nice().range([height - margin.top - margin.bottom, 0]);
+        let y = d3.scaleLinear().domain([0, d3.max(data, d => d.Activity)]).nice().range([height - margin.top - margin.bottom, 0]);
 
-        let color = d3.scaleOrdinal().domain(["Estrus", "Non-Estrus"]).range(["red", "blue"]);
-
+        // X-axis
         svg.append("g")
             .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
             .call(d3.axisBottom(x).ticks(10))
             .append("text")
             .attr("x", (width - margin.left - margin.right) / 2)
-            .attr("y", 40)
+            .attr("y", 50)
             .attr("fill", "black")
             .attr("text-anchor", "middle")
-            .attr("font-size", "14px")
+            .style("font-size", "14px")
             .text("Minutes of the Day");
 
+        // Y-axis
         svg.append("g")
             .call(d3.axisLeft(y))
             .append("text")
             .attr("transform", "rotate(-90)")
             .attr("x", -((height - margin.top - margin.bottom) / 2))
-            .attr("y", -50)
+            .attr("y", -60)
             .attr("fill", "black")
             .attr("text-anchor", "middle")
-            .attr("font-size", "14px")
-            .text("Body Temperature (°C)");
+            .style("font-size", "14px")
+            .text("Activity Level");
 
+        // Tooltip
+        let tooltip = d3.select("body").append("div")
+            .style("position", "absolute")
+            .style("background", "white")
+            .style("border", "1px solid black")
+            .style("padding", "5px")
+            .style("border-radius", "5px")
+            .style("visibility", "hidden");
+
+        // Scatter plot points
         svg.selectAll(".dot")
             .data(data)
             .enter()
             .append("circle")
             .attr("cx", d => x(d.Minute))
-            .attr("cy", d => y(d.Temperature))
-            .attr("r", 3)
-            .attr("fill", d => color(d.Estrus))
-            .attr("opacity", 0.7);
+            .attr("cy", d => y(d.Activity))
+            .attr("r", 4)
+            .attr("fill", "blue")
+            .attr("opacity", 0.7)
+            .on("mouseover", function (event, d) {
+                tooltip.style("visibility", "visible")
+                    .html(`Minute: ${d.Minute} <br> Activity: ${d.Activity}`)
+                    .style("top", `${event.pageY - 10}px`)
+                    .style("left", `${event.pageX + 10}px`);
+                d3.select(this).attr("r", 7).attr("fill", "red");
+            })
+            .on("mouseout", function () {
+                tooltip.style("visibility", "hidden");
+                d3.select(this).attr("r", 4).attr("fill", "blue");
+            });
+
     }).catch(error => console.error("Error loading CSV:", error));
 });
