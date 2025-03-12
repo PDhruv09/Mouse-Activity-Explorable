@@ -3,75 +3,76 @@ document.addEventListener("DOMContentLoaded", function () {
         data.forEach(d => {
             d.Minute = +d.Minute;
             d.Activity = +d.Activity;
-            d.Day = +d.Day;
         });
 
-        let width = 900, height = 500, margin = { top: 50, right: 120, bottom: 80, left: 80 };
-
-        let svg = d3.select("#activityChart")
+        let width = 900, height = 500, margin = { top: 50, right: 80, bottom: 60, left: 70 };
+        let svg = d3.select("#staticChart")
             .append("svg")
-            .attr("width", width)
-            .attr("height", height)
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        let x = d3.scaleLinear().domain([0, 1440]).range([0, width - margin.left - margin.right]);
-        let y = d3.scaleLinear().domain([0, d3.max(data, d => d.Activity)]).nice().range([height - margin.top - margin.bottom, 0]);
+        // X and Y scales
+        let x = d3.scaleLinear().domain([0, 1440]).range([0, width]);
+        let y = d3.scaleLinear().domain([0, d3.max(data, d => d.Activity)]).range([height, 0]);
 
-        // X-axis
+        // Static Line Chart
+        let line = d3.line()
+            .x(d => x(d.Minute))
+            .y(d => y(d.Activity));
+
+        svg.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 2)
+            .attr("d", line);
+
         svg.append("g")
-            .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
-            .call(d3.axisBottom(x).ticks(10))
-            .append("text")
-            .attr("x", (width - margin.left - margin.right) / 2)
-            .attr("y", 50)
-            .attr("fill", "black")
-            .attr("text-anchor", "middle")
-            .style("font-size", "14px")
-            .text("Minutes of the Day");
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x).ticks(10));
 
-        // Y-axis
         svg.append("g")
-            .call(d3.axisLeft(y))
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("x", -((height - margin.top - margin.bottom) / 2))
-            .attr("y", -60)
-            .attr("fill", "black")
-            .attr("text-anchor", "middle")
-            .style("font-size", "14px")
-            .text("Activity Level");
+            .call(d3.axisLeft(y));
 
-        // Tooltip
-        let tooltip = d3.select("body").append("div")
-            .style("position", "absolute")
-            .style("background", "white")
-            .style("border", "1px solid black")
-            .style("padding", "5px")
-            .style("border-radius", "5px")
-            .style("visibility", "hidden");
+        // ========================
+        // Interactive Visualization
+        // ========================
+        let svgInteractive = d3.select("#interactiveChart")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        // Scatter plot points
-        svg.selectAll(".dot")
-            .data(data)
+        let mice = Array.from(new Set(data.map(d => d.MouseID)));
+        let colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain(mice);
+
+        let filteredData = data.filter(d => d.MouseID === mice[0]);
+        let interactiveLine = d3.line()
+            .x(d => x(d.Minute))
+            .y(d => y(d.Activity));
+
+        let path = svgInteractive.append("path")
+            .datum(filteredData)
+            .attr("fill", "none")
+            .attr("stroke", colorScale(mice[0]))
+            .attr("stroke-width", 2)
+            .attr("d", interactiveLine);
+
+        let selectMenu = d3.select("#interactive-visualization").append("select");
+        selectMenu.selectAll("option")
+            .data(mice)
             .enter()
-            .append("circle")
-            .attr("cx", d => x(d.Minute))
-            .attr("cy", d => y(d.Activity))
-            .attr("r", 4)
-            .attr("fill", "blue")
-            .attr("opacity", 0.7)
-            .on("mouseover", function (event, d) {
-                tooltip.style("visibility", "visible")
-                    .html(`Minute: ${d.Minute} <br> Activity: ${d.Activity}`)
-                    .style("top", `${event.pageY - 10}px`)
-                    .style("left", `${event.pageX + 10}px`);
-                d3.select(this).attr("r", 7).attr("fill", "red");
-            })
-            .on("mouseout", function () {
-                tooltip.style("visibility", "hidden");
-                d3.select(this).attr("r", 4).attr("fill", "blue");
-            });
+            .append("option")
+            .text(d => `Mouse ${d}`)
+            .attr("value", d => d);
 
+        selectMenu.on("change", function () {
+            let selectedMouse = this.value;
+            let updatedData = data.filter(d => d.MouseID === selectedMouse);
+            path.datum(updatedData).transition().duration(500).attr("d", interactiveLine);
+        });
     }).catch(error => console.error("Error loading CSV:", error));
 });

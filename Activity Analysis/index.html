@@ -14,24 +14,31 @@
         <p>Exploring how mice activity levels fluctuate throughout the day.</p>
     </header>
 
-    <section id="What">
-        <h2>What is being visualized?</h2>
-        <p>A scatter plot representing the activity levels of mice at different times of the day.</p>
+    <!-- Story Introduction -->
+    <section id="story-intro">
+        <h2>Understanding Mouse Activity</h2>
+        <p>Mice have natural activity cycles influenced by light, time of day, and other factors. This analysis aims to uncover trends and patterns in their movement.</p>
     </section>
-    
-    <section id="Why">
-        <h2>Why is it being visualized?</h2>
-        <p>To understand daily patterns in mouse behavior, particularly differences in activity during light and dark periods.</p>
+
+    <!-- Static Visualization Section -->
+    <section id="static-visualization">
+        <h2>Static Visualization: Average Activity Over Time</h2>
+        <p>The following chart represents the average activity levels of mice throughout a 24-hour period.</p>
+        <div id="staticChart"></div>
     </section>
-    
-    <section id="How">
-        <h2>How is it being visualized?</h2>
-        <p>The scatter plot below maps activity levels against time of day, using D3.js for interactivity.</p>
+
+    <!-- Transition Text -->
+    <section id="story-transition">
+        <h2>Digging Deeper...</h2>
+        <p>Now that we see general patterns, can we explore individual variations? Let's make it interactive.</p>
     </section>
-    
-    <main>
-        <div id="activityChart"></div>
-    </main>
+
+    <!-- Interactive Visualization Section -->
+    <section id="interactive-visualization">
+        <h2>Interactive Visualization: Explore Mouse Activity</h2>
+        <p>Use the interactive chart below to select specific mice and compare their activity levels.</p>
+        <div id="interactiveChart"></div>
+    </section>
     
     <script src="../script.js"></script>
     <script src="activity.js"></script>

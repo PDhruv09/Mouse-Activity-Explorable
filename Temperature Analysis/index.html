@@ -14,27 +14,34 @@
         <p>Exploring body temperature variations in mice over time.</p>
     </header>
 
-    <section id="What">
-        <h2>What is being visualized?</h2>
-        <p>A time-series line chart showing temperature fluctuations throughout the day.</p>
+    <!-- Story Introduction -->
+    <section id="story-intro">
+        <h2>Understanding Mouse Temperature</h2>
+        <p>Body temperature in mice varies due to time of day, activity levels, and physiological conditions. This analysis explores these patterns.</p>
     </section>
-    
-    <section id="Why">
-        <h2>Why is it being visualized?</h2>
-        <p>To analyze daily temperature trends and compare variations between male and female mice.</p>
+
+    <!-- Static Visualization Section -->
+    <section id="static-visualization">
+        <h2>Static Visualization: Average Temperature Over Time</h2>
+        <p>The chart below represents the average temperature of mice throughout the day.</p>
+        <div id="staticChart"></div>
     </section>
-    
-    <section id="How">
-        <h2>How is it being visualized?</h2>
-        <p>The chart below represents temperature as a function of time, using D3.js to make it interactive.</p>
+
+    <!-- Transition Text -->
+    <section id="story-transition">
+        <h2>Looking Deeper...</h2>
+        <p>Now that we see general trends, let's analyze variations between male and female mice.</p>
     </section>
-    
-    <main>
-        <div id="temperatureChart"></div>
-    </main>
+
+    <!-- Interactive Visualization Section -->
+    <section id="interactive-visualization">
+        <h2>Interactive Visualization: Compare Temperature Trends</h2>
+        <p>Use the interactive graph below to explore temperature changes based on gender and time of day.</p>
+        <div id="interactiveChart"></div>
+    </section>
     
     <script src="../script.js"></script>
-    <script src="temperatur.js"></script>
+    <script src="temperature.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </body>
 </html>
