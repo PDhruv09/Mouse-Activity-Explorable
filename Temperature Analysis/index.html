@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Temperature Analysis</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav id="navbar"></nav>
+    
+    <header>
+        <h1>Mouse Temperature Analysis</h1>
+        <p>Exploring body temperature variations in mice over time.</p>
+    </header>
+
+    <section id="What">
+        <h2>What is being visualized?</h2>
+        <p>A time-series line chart showing temperature fluctuations throughout the day.</p>
+    </section>
+    
+    <section id="Why">
+        <h2>Why is it being visualized?</h2>
+        <p>To analyze daily temperature trends and compare variations between male and female mice.</p>
+    </section>
+    
+    <section id="How">
+        <h2>How is it being visualized?</h2>
+        <p>The chart below represents temperature as a function of time, using D3.js to make it interactive.</p>
+    </section>
+    
+    <main>
+        <div id="temperatureChart"></div>
+    </main>
+    
+    <script src="../script.js"></script>
+    <script src="temperature.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
+</html>

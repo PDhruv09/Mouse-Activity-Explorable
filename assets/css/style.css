@@ -1,0 +1,102 @@
+html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+}
+/* General Styles */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 0;
+    padding-top: 30px;
+}
+
+/* Navigation Menu Styling */
+#navbar {
+    display: flex;
+    justify-content: flex-end; /* Align navigation to the right */
+    gap: 20px; /* Add spacing between links */
+    margin-right: 20px; /* Space from the right edge */
+    list-style: none;
+}
+
+#navbar a {
+    text-decoration: none;
+    padding: 10px 15px; /* Add padding around links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effects */
+}
+
+#navbar a:hover {
+    color: #7acfee; /* Accent color on hover */
+    border-radius: 5px;
+}
+
+#navbar a.current {
+    font-weight: bold;
+    color: #7acfee; /* Highlight the current page link */
+}
+
+/* Sections */
+/* Main Chart Styling */
+main {
+    display: flex;
+    justify-content: center;
+    min-height: 400px; /* Ensures some height */
+    max-width: 800px; /* Prevent stretching on large screens */
+    margin: 40px auto; /* Centering only horizontally */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px rgb(247 0 0 / 10%);
+}
+
+ul {
+    list-style: disc; /* Adds bullet points back */
+    padding-left: 20px; /* Adds indentation for the list */
+    margin: 0; /* Adjusts top/bottom margin if necessary */
+}
+
+ul li {
+    margin: 15px 0; /* Keeps the spacing between list items */
+}
+
+ul li a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+section {
+    width: 80%; /* Reduce width for better spacing */
+    max-width: 800px; /* Prevent stretching on large screens */
+    margin: 40px auto; /* Centering only horizontally */
+    padding: 20px;
+    text-align: left; /* Ensure text aligns left */
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px rgb(247 0 0 / 10%); /* Subtle shadow */
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #7acfee, #00274d);
+    border-radius: 0 0 10px 10px;
+}
+
+h1, h2 {
+    font-family: 'Arial', sans-serif;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    visibility: hidden;
+}

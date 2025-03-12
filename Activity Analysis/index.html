@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Activity Analysis</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav id="navbar"></nav>
+    
+    <header>
+        <h1>Mouse Activity Analysis</h1>
+        <p>Exploring how mice activity levels fluctuate throughout the day.</p>
+    </header>
+
+    <section id="What">
+        <h2>What is being visualized?</h2>
+        <p>A scatter plot representing the activity levels of mice at different times of the day.</p>
+    </section>
+    
+    <section id="Why">
+        <h2>Why is it being visualized?</h2>
+        <p>To understand daily patterns in mouse behavior, particularly differences in activity during light and dark periods.</p>
+    </section>
+    
+    <section id="How">
+        <h2>How is it being visualized?</h2>
+        <p>The scatter plot below maps activity levels against time of day, using D3.js for interactivity.</p>
+    </section>
+    
+    <main>
+        <div id="activityChart"></div>
+    </main>
+    
+    <script src="../script.js"></script>
+    <script src="activity.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
+</html>
