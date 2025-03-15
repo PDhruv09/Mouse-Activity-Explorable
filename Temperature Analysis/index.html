@@ -15,33 +15,67 @@
     </header>
 
     <!-- Story Introduction -->
-    <section id="story-intro">
-        <h2>Understanding Mouse Temperature</h2>
-        <p>Body temperature in mice varies due to time of day, activity levels, and physiological conditions. This analysis explores these patterns.</p>
+    <section>
+        <h2>Introduction</h2>
+        <p>Body temperature serves as a proxy for mouse activity levels. Our analysis investigates whether male or female mice exhibit higher activity patterns based on temperature.</p>
     </section>
 
-    <!-- Static Visualization Section -->
-    <section id="static-visualization">
-        <h2>Static Visualization: Average Temperature Over Time</h2>
-        <p>The chart below represents the average temperature of mice throughout the day.</p>
-        <div id="staticChart"></div>
+    <!-- Static Visualization: Average Temperature Trends -->
+    <section>
+        <h2>Average Temperature Trends</h2>
+        <p>This visualization illustrates general temperature trends to highlight overall activity patterns in both male and female mice.</p>
+        <div id="averageTemperatureHeatmap"></div>
     </section>
 
-    <!-- Transition Text -->
-    <section id="story-transition">
-        <h2>Looking Deeper...</h2>
-        <p>Now that we see general trends, let's analyze variations between male and female mice.</p>
+    <!-- Deeper Analysis Transition -->
+    <section>
+        <h2>Diving Deeper</h2>
+        <p>Next, we will examine individual mouse activity to identify specific patterns and variations.</p>
     </section>
 
-    <!-- Interactive Visualization Section -->
-    <section id="interactive-visualization">
-        <h2>Interactive Visualization: Compare Temperature Trends</h2>
-        <p>Use the interactive graph below to explore temperature changes based on gender and time of day.</p>
-        <div id="interactiveChart"></div>
+    <!-- Static Visualization: Female Mice -->
+    <section>
+        <h2>Female Mouse Temperature Patterns</h2>
+        <p>This visualization shows temperature variations among individual female mice, highlighting the most and least active mice.</p>
+        <div id="femaleTemperatureChart"></div>
+    </section>
+
+    <!-- Static Visualization for Male Mice -->
+    <section>
+        <h2>Male Mouse Temperature Variability</h2>
+        <p>Analyzing temperature data from male mice to identify patterns and extremes in activity.</p>
+        <div id="maleTemperatureChart"></div>
+    </section>
+
+    <!-- Interactive Visualization -->
+    <section>
+        <h2>Interactive Exploration</h2>
+        <p>Select gender and specific mice to interactively explore detailed temperature patterns.</p>
+        <!-- Mouse Selection (Multiple Select) -->
+        <label>Select Mice:
+            <select id="mouseSelection" multiple></select>
+        </label>
+
+        <!-- Checkboxes for Average Selection -->
+        <div>
+            <label><input type="checkbox" id="avgFemale"> Average of Selected Females</label>
+            <label><input type="checkbox" id="avgMale"> Average of Selected Males</label>
+            <label><input type="checkbox" id="avgAll"> Average of All Selected Mice</label>
+        </div>
+
+        <!-- Chart Container -->
+        <div id="interactiveTemperatureChart"></div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section>
+        <h2>Summary of Findings</h2>
+        <p>Summarize key insights from the analysis, highlighting differences between male and female activity based on temperature patterns.</p>
     </section>
     
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="../script.js"></script>
     <script src="temperatur.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </body>
 </html>
