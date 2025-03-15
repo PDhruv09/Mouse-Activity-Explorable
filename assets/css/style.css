@@ -70,7 +70,7 @@ ul li a:hover {
 /* Sections */
 section {
     width: 80%; /* Reduce width for better spacing */
-    max-width: 800px; /* Prevent stretching on large screens */
+    max-width: 950px; /* Prevent stretching on large screens */
     margin: 40px auto; /* Centering only horizontally */
     padding: 20px;
     text-align: left; /* Ensure text aligns left */

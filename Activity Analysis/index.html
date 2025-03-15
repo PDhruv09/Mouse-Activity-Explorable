@@ -14,34 +14,89 @@
         <p>Exploring how mice activity levels fluctuate throughout the day.</p>
     </header>
 
-    <!-- Story Introduction -->
-    <section id="story-intro">
-        <h2>Understanding Mouse Activity</h2>
-        <p>Mice have natural activity cycles influenced by light, time of day, and other factors. This analysis aims to uncover trends and patterns in their movement.</p>
+    <!-- Problem Introduction -->
+    <section id="problem-intro">
+        <h2>The Problem</h2>
+        <p>Do male or female mice exhibit higher activity levels? Understanding their behavior can provide insights into circadian rhythms and health patterns.</p>
     </section>
 
-    <!-- Static Visualization Section -->
-    <section id="static-visualization">
-        <h2>Static Visualization: Average Activity Over Time</h2>
-        <p>The following chart represents the average activity levels of mice throughout a 24-hour period.</p>
-        <div id="staticChart"></div>
+    <!-- Static Visualization 1: Average Activity (Male vs. Female) -->
+    <section id="static-visualization-1">
+        <h2>Average Activity of Male vs. Female Mice</h2>
+        <p>This graph shows the average activity level of male and female mice over a 24-hour period.</p>
+        <div id="staticChart1"></div>
     </section>
 
-    <!-- Transition Text -->
+    <!-- Explanation of First Visualization -->
+    <section id="explanation-1">
+        <h2>Understanding the Trends</h2>
+        <p>From the graph, we can see whether males or females are generally more active and how their activity varies throughout the day.</p>
+    </section>
+
+    <!-- Digging Deeper -->
     <section id="story-transition">
-        <h2>Digging Deeper...</h2>
-        <p>Now that we see general patterns, can we explore individual variations? Let's make it interactive.</p>
+        <h2>Why Look at Individual Mice?</h2>
+        <p>While averages are useful, they do not show individual variations. Some mice may be more active or inactive compared to their group.</p>
     </section>
 
-    <!-- Interactive Visualization Section -->
+    <!-- Static Visualization 2: Female Mice Activity -->
+    <section id="static-visualization-2">
+        <h2>Female Mouse Activity Over Time</h2>
+        <p>Each line represents the activity of an individual female mouse, with the average highlighted. The most and least active mice are marked.</p>
+        <div id="staticChart2"></div>
+    </section>
+
+    <!-- Explanation of Second Visualization -->
+    <section id="explanation-2">
+        <h2>Interpreting Female Mouse Activity</h2>
+        <p>Do female mice follow a general trend, or are there significant outliers? We can observe the lowest and highest activity mice compared to the average.</p>
+    </section>
+
+    <!-- Static Visualization 3: Male Mice Activity -->
+    <section id="static-visualization-3">
+        <h2>Male Mouse Activity Over Time</h2>
+        <p>Each line represents the activity of an individual male mouse, with the average highlighted. The most and least active mice are marked.</p>
+        <div id="staticChart3"></div>
+    </section>
+
+    <!-- Explanation of Third Visualization -->
+    <section id="explanation-3">
+        <h2>Interpreting Male Mouse Activity</h2>
+        <p>Comparing individual male mice, do their activity levels align with the average, or do some stand out?</p>
+    </section>
+
+    <!-- Summary Comparison -->
+    <section id="summary-comparison">
+        <h2>Male vs. Female Activity: A Deeper Look</h2>
+        <p>Comparing the individual activity levels, do male and female mice show distinct behavioral differences?</p>
+    </section>
+
+    <!-- Interactive Visualization -->
     <section id="interactive-visualization">
-        <h2>Interactive Visualization: Explore Mouse Activity</h2>
-        <p>Use the interactive chart below to select specific mice and compare their activity levels.</p>
+        <h2>Explore Mouse Activity</h2>
+        <p>Select a gender and choose specific mice to compare. You can include or exclude the average activity.</p>
+        <label for="genderSelector">Select Gender:</label>
+        <select id="genderSelector">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        
+        <select id="mouseSelector" multiple></select>
+        
+        <input type="checkbox" id="includeSelectedAverage"> Include Average of Selected
+        <input type="checkbox" id="includeAllAverage"> Include Average of All
+        
         <div id="interactiveChart"></div>
     </section>
+
+    <!-- Final Insights -->
+    <section id="final-insights">
+        <h2>Conclusions</h2>
+        <p>Now that you have explored the data, what trends do you observe? Do your findings match expectations?</p>
+    </section>
     
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="../script.js"></script>
     <script src="activity.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
 </body>
 </html>
