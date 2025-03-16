@@ -63,12 +63,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 .attr("fill", d => d.DominantGender === "Male" ? colorScaleMale(d.Temperature) : colorScaleFemale(d.Temperature))
                 .attr("opacity", 0.7);
 
-            svg.append("g").call(d3.axisLeft(yScale)).append("text")
-                .attr("transform", "rotate(-90)").attr("y", -50).attr("x", -height / 2)
-                .attr("fill", "#000").text("Temperature (°C)");
+            svg.append("g").call(d3.axisLeft(yScale))
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", -50)
+                .attr("x", -height / 2)
+                .attr("fill", "#000")
+                .text("Temperature (°C)");
 
-            svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
-                .append("text").attr("x", width / 2).attr("y", 50).attr("fill", "#000").text("Minute");
+                svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
+                .append("text")
+                .attr("x", width / 2)
+                .attr("y", 50)
+                .attr("fill", "#000")
+                .text("Minute");
+
+            svg.append("text")  
+                .attr("x", width - 120)
+                .attr("y", 10)
+                .attr("fill", "black")
+                .attr("font-size", "14px")
+                .text("Legend");
 
             // Add Legend
             const legend = svg.append("g").attr("transform", `translate(${width - 100}, 10)`);
@@ -120,6 +135,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 .attr("height", d => height - yScale(d.AvgTemp))
                 .attr("fill", d => colorScale(d.MouseID));
 
+            svg.append("g").call(d3.axisLeft(yScale)).append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", -50)
+                .attr("x", -height / 2)
+                .attr("fill", "#000")
+                .text("Temperature (°C)");
+
+            svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
+                .selectAll("text").attr("transform", "rotate(-45)").style("text-anchor", "end");
+
+            svg.append("text")  
+                .attr("x", width - 120)
+                .attr("y", 10)
+                .attr("fill", "black")
+                .attr("font-size", "14px")
+                .text("Legend");
             // Draw overall average temperature line
             svg.append("line")
                 .attr("x1", 0)
@@ -129,7 +160,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 .attr("stroke", "black")
                 .attr("stroke-dasharray", "4");
 
-            svg.append("g").call(d3.axisLeft(yScale));
+            svg.append("g").call(d3.axisLeft(yScale))
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", -50)
+                .attr("x", -height / 2)
+                .attr("fill", "#000")
+                .text("Temperature (°C)");
+            
             svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
                 .selectAll("text").attr("transform", "rotate(-45)").style("text-anchor", "end");
 
@@ -224,9 +262,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     .attr("fill", colorScale(mouse));
                 legend.append("text").attr("x", 15).attr("y", 20 * (index + 1) + 10).text(mouse);
             });
-            if (avgFemaleCheckbox.node().checked) legend.append("rect").attr("x", 0).attr("y", 20 * (selectedMice.length + 1)).attr("width", 10).attr("height", 10).attr("fill", "red");
-            if (avgMaleCheckbox.node().checked) legend.append("rect").attr("x", 0).attr("y", 20 * (selectedMice.length + 2)).attr("width", 10).attr("height", 10).attr("fill", "blue");
-            if (avgAllCheckbox.node().checked) legend.append("rect").attr("x", 0).attr("y", 20 * (selectedMice.length + 3)).attr("width", 10).attr("height", 10).attr("fill", "black");
+            if (avgFemaleCheckbox.node().checked) {
+                legend.append("rect").attr("x", 0).attr("y", 20 * (selectedMice.length + 1)).attr("width", 10).attr("height", 10).attr("fill", "red");
+                legend.append("text").attr("x", 15).attr("y", 20 * (selectedMice.length + 1) + 10).text("Avg Selected Female");
+            }
+
+            if (avgMaleCheckbox.node().checked) {
+                legend.append("rect").attr("x", 0).attr("y", 20 * (selectedMice.length + 2)).attr("width", 10).attr("height", 10).attr("fill", "blue");
+                legend.append("text").attr("x", 15).attr("y", 20 * (selectedMice.length + 2) + 10).text("Avg Selected Male");
+            }
+
+            if (avgAllCheckbox.node().checked) {
+                legend.append("rect").attr("x", 0).attr("y", 20 * (selectedMice.length + 3)).attr("width", 10).attr("height", 10).attr("fill", "black");
+                legend.append("text").attr("x", 15).attr("y", 20 * (selectedMice.length + 3) + 10).text("Avg All Selected");
+            }
         }
 
         mouseSelection.on("change", updateInteractiveChart);

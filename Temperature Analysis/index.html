@@ -11,46 +11,87 @@
     
     <header>
         <h1>Mouse Temperature Analysis</h1>
-        <p>Exploring body temperature variations in mice over time.</p>
+        <p>
+            Can body temperature predict mouse activity levels? 
+            <strong>And</strong> do males and females exhibit different thermoregulatory patterns? 
+            <strong>But</strong> how do external factors like circadian rhythms and estrus cycles influence temperature fluctuations? 
+            <strong>Therefore</strong>, analyzing these patterns can help us understand biological rhythms more deeply.
+        </p>
     </header>
 
     <!-- Story Introduction -->
-    <section>
+    <section id="story-intro">
         <h2>Introduction</h2>
-        <p>Body temperature serves as a proxy for mouse activity levels. Our analysis investigates whether male or female mice exhibit higher activity patterns based on temperature.</p>
+        <p>
+            Body temperature fluctuates throughout the day and can be a strong indicator of metabolic activity. 
+            <strong>But</strong> do males and females experience these fluctuations differently? 
+            <strong>Therefore</strong>, we will analyze temperature variations to see how they correlate with biological cycles and behavioral activity.
+        </p>
+    </section>
+
+    <section id="why-care">
+        <h2>Why Should We Care?</h2>
+        <p>
+            Body temperature is a critical indicator of metabolic function and overall health.  
+            <strong>And</strong> fluctuations in temperature can reveal patterns of energy expenditure, stress response, and biological rhythms.  
+            <strong>But</strong> do male and female mice regulate temperature differently, and if so, what factors contribute to these differences?  
+            <strong>Therefore</strong>, studying temperature variations provides valuable insights into thermoregulation, circadian rhythms, and hormonal effects on physiology.
+        </p>
     </section>
 
     <!-- Static Visualization: Average Temperature Trends -->
-    <section>
+    <section id="average-temp-trends">
         <h2>Average Temperature Trends</h2>
-        <p>This visualization illustrates general temperature trends to highlight overall activity patterns in both male and female mice.</p>
+        <p>
+            This visualization shows the **average temperature cycles** for male and female mice.
+            <strong>But</strong> do these trends remain consistent over time?
+            <strong>Therefore</strong>, let's explore temperature fluctuations across different biological states.
+        </p>
         <div id="averageTemperatureHeatmap"></div>
+        <p class="annotation">🔥 *Temperature fluctuates in a rhythmic pattern, with peaks and dips aligning with biological cycles. Notice how female-dominant periods (in red) are more frequent!*</p>
     </section>
 
-    <!-- Deeper Analysis Transition -->
-    <section>
-        <h2>Diving Deeper</h2>
-        <p>Next, we will examine individual mouse activity to identify specific patterns and variations.</p>
+    <!-- Transition to Individual-Level Analysis -->
+    <section id="individual-analysis-transition">
+        <h2>Diving Deeper: Individual Differences</h2>
+        <p>
+            Group averages provide insights, <strong>but</strong> they might obscure individual variability. 
+            <strong>Therefore</strong>, let’s analyze temperature fluctuations at an individual level.
+        </p>
     </section>
 
     <!-- Static Visualization: Female Mice -->
-    <section>
+    <section id="female-temp-analysis">
         <h2>Female Mouse Temperature Patterns</h2>
-        <p>This visualization shows temperature variations among individual female mice, highlighting the most and least active mice.</p>
+        <p>
+            This bar chart displays the **average body temperature of each female mouse** over the study period.
+            <strong>But</strong> does temperature vary significantly between individuals?
+            <strong>Therefore</strong>, let's compare different mice to see who exhibits the most extreme fluctuations.
+        </p>
         <div id="femaleTemperatureChart"></div>
+        <p class="annotation">📊 *The dashed line represents the overall female average temperature. Some mice (e.g., f5) have much higher body temperatures, which may indicate increased activity levels during estrus cycles.*</p>
     </section>
 
     <!-- Static Visualization for Male Mice -->
-    <section>
+    <section id="male-temp-analysis">
         <h2>Male Mouse Temperature Variability</h2>
-        <p>Analyzing temperature data from male mice to identify patterns and extremes in activity.</p>
+        <p>
+            Similarly, male mice also exhibit temperature fluctuations.
+            <strong>But</strong> without an estrus cycle, do they follow the same rhythmic patterns?
+            <strong>Therefore</strong>, we compare their temperature trends with female mice to see if biological cycles drive these changes.
+        </p>
         <div id="maleTemperatureChart"></div>
+        <p class="annotation">📈 *Male mice tend to have more stable body temperatures, as indicated by the lower variance compared to female mice.*</p>
     </section>
 
     <!-- Interactive Visualization -->
-    <section>
+    <section id="interactive-temp-exploration">
         <h2>Interactive Exploration</h2>
-        <p>Select gender and specific mice to interactively explore detailed temperature patterns.</p>
+        <p>
+            While group patterns provide useful insights, <strong>what if we could select individual mice</strong> and compare their temperature trends dynamically?
+            <strong>Therefore</strong>, we introduce an interactive tool for deeper exploration.
+        </p>
+
         <!-- Mouse Selection (Multiple Select) -->
         <label>Select Mice:
             <select id="mouseSelection" multiple></select>
@@ -65,12 +106,18 @@
 
         <!-- Chart Container -->
         <div id="interactiveTemperatureChart"></div>
+        <p class="annotation">🔎 *Use this interactive chart to observe how different mice deviate from the average. Do some follow a predictable cycle, while others show random variations?*</p>
     </section>
 
     <!-- Conclusion Section -->
-    <section>
+    <section id="final-insights">
         <h2>Summary of Findings</h2>
-        <p>Summarize key insights from the analysis, highlighting differences between male and female activity based on temperature patterns.</p>
+        <p>
+            We set out to explore whether **temperature variations** align with biological cycles. 
+            <strong>And</strong> we found that while **both genders show daily fluctuations, female mice exhibit stronger periodic patterns** likely tied to the estrus cycle.
+            <strong>But</strong> not all individuals conform to these trends.
+            <strong>Therefore</strong>, our study suggests that while biological rhythms shape behavior, individual differences still play a crucial role in temperature regulation.
+        </p>
     </section>
     
     <script src="https://d3js.org/d3.v7.min.js"></script>

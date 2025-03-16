@@ -11,53 +11,91 @@
     
     <header>
         <h1>Estrus Cycle Impact on Mouse Physiology</h1>
-        <p>Analyzing how the estrus cycle affects temperature and activity levels in female mice.</p>
+        <p>
+            Does the estrus cycle affect female mouse activity and temperature?  
+            <strong>And</strong> how significant are these changes compared to the off-cycle phase?  
+            <strong>But</strong> are these trends consistent across all mice?  
+            <strong>Therefore</strong>, by analyzing temperature and activity fluctuations, we can uncover meaningful biological patterns.
+        </p>
     </header>
 
     <!-- Problem Statement -->
     <section id="problem-statement">
         <h2>The Problem</h2>
-        <p>How do temperature and activity levels differ in female mice while on the Estrus Cycle versus off the Estrus Cycle?</p>
+        <p>
+            The estrus cycle plays a key role in reproductive biology,  
+            <strong>but</strong> how does it impact general activity and temperature regulation?  
+            <strong>Therefore</strong>, our goal is to analyze how these physiological metrics change depending on the estrus cycle phase.
+        </p>
     </section>
 
     <!-- Why Should We Care -->
     <section id="why-care">
         <h2>Why Should We Care?</h2>
-        <p>Understanding these physiological changes can help in behavioral studies, medical research, and hormonal analysis.</p>
+        <p>
+            Hormonal fluctuations can influence metabolism, sleep patterns, and overall behavior.  
+            <strong>And</strong> understanding these changes helps researchers in fields such as behavioral neuroscience and medicine.  
+            <strong>But</strong> if the estrus cycle affects physiological patterns in predictable ways,  
+            <strong>therefore</strong> it could offer insights into how hormonal cycles regulate activity across species.
+        </p>
     </section>
 
     <!-- First Static Visualization: Average Temperature & Activity -->
     <section id="static-visualization">
-        <h2>Average Temperature & Activity Levels</h2>
-        <p>This bar chart compares the average temperature and activity levels of female mice while on cycle vs. off cycle.</p>
+        <h2>Comparing Activity and Temperature Across Estrus Cycles</h2>
+        <p>
+            This bar chart compares **average activity levels and body temperature** when mice are on and off the estrus cycle.  
+            <strong>But</strong> does this pattern hold for all individuals?  
+            <strong>Therefore</strong>, we need to investigate variations in individual mice.
+        </p>
         <div id="staticChart"></div>
+        <p class="annotation">📊 *Female mice tend to have higher activity levels when on the estrus cycle, which may be linked to increased metabolism and reproductive behaviors.*</p>
     </section>
 
     <!-- Digging Deeper -->
     <section id="digging-deeper">
-        <h2>Digging Deeper</h2>
-        <p>Now that we see the overall trends, let’s explore how individual mice behave.</p>
+        <h2>Diving Deeper: Individual Variations</h2>
+        <p>
+            While group averages provide useful insights,  
+            <strong>but</strong> they might obscure individual-level variations.  
+            <strong>Therefore</strong>, let’s analyze activity and temperature changes in individual mice.
+        </p>
     </section>
 
     <!-- Individual Mouse Analysis - On Cycle -->
     <section id="on-cycle-analysis">
-        <h2>Activity & Temperature of Individual Mice (On Cycle)</h2>
-        <p>This graph shows the temperature and activity of each mouse while on cycle, with each individual represented by a different color.</p>
+        <h2>Individual Mouse Temperature & Activity (On Cycle)</h2>
+        <p>
+            This visualization highlights **how individual female mice behave while on the estrus cycle**.  
+            <strong>But</strong> do some mice exhibit extreme variations compared to others?  
+            <strong>Therefore</strong>, we must examine these fluctuations closely.
+        </p>
         <div id="onCycleChart"></div>
+        <p class="annotation">🔥 *Notice how some mice show extreme fluctuations? This could indicate heightened activity levels during the reproductive phase.*</p>
     </section>
 
     <!-- Individual Mouse Analysis - Off Cycle -->
     <section id="off-cycle-analysis">
-        <h2>Activity & Temperature of Individual Mice (Off Cycle)</h2>
-        <p>This graph shows the temperature and activity of each mouse while off cycle, with each individual represented by a different color.</p>
+        <h2>Individual Mouse Temperature & Activity (Off Cycle)</h2>
+        <p>
+            What happens when mice are off the estrus cycle?  
+            <strong>And</strong> do they return to a stable state?  
+            <strong>But</strong> is this stability consistent across all mice?  
+            <strong>Therefore</strong>, we compare this to the on-cycle phase.
+        </p>
         <div id="offCycleChart"></div>
+        <p class="annotation">📉 *Compared to the on-cycle state, activity levels seem lower, and temperature is more stable across most mice.*</p>
     </section>
 
     <!-- Final Exploration: Interactive Chart -->
     <section id="interactive-visualization">
-        <h2>Explore the Data</h2>
-        <p>Use the dropdowns below to select cycle phase, temperature or activity, and compare different mice.</p>
-        
+        <h2>Explore the Data Interactively</h2>
+        <p>
+            Not all mice follow the same pattern,  
+            <strong>but</strong> does their individual activity vary based on cycle phase?  
+            <strong>Therefore</strong>, the interactive tool below allows us to select different mice and compare their estrus-cycle behaviors dynamically.
+        </p>
+
         <label for="cycleSelect">Select Cycle Phase:</label>
         <select id="cycleSelect">
             <option value="On">On Cycle</option>
@@ -80,6 +118,19 @@
         </label>
 
         <div id="interactiveChart"></div>
+        <p class="annotation">🖱️ *Select different mice and cycle phases to see if their activity and temperature fluctuate consistently!* </p>
+    </section>
+
+    <!-- Summary of Findings -->
+    <section id="final-insights">
+        <h2>Final Insights</h2>
+        <p>
+            We aimed to explore how **the estrus cycle influences female mice's activity and temperature.**  
+            <strong>And</strong> our findings indicate that while temperature remains relatively stable,  
+            <strong>activity levels tend to increase significantly during the on-cycle phase.**  
+            <strong>But</strong> these trends are not uniform across all mice.  
+            <strong>Therefore</strong>, individual variations must be considered when studying reproductive behavior and hormonal cycles.
+        </p>
     </section>
     
     <script src="https://d3js.org/d3.v7.min.js"></script>

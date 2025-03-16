@@ -17,7 +17,8 @@ function generateNavigation() {
         { url: "index.html", title: "Home" },
         { url: "Activity Analysis/index.html", title: "Activity Levels" },
         { url: "Temperature Analysis/index.html", title: "Temperature Changes" },
-        { url: "Estrus Cycle Impact/index.html", title: "Estrus Cycle Effect" }
+        { url: "Estrus Cycle Impact/index.html", title: "Estrus Cycle Effect" },
+        { url: "https://github.com/PDhruv09/Mouse-Activity-Explorable", title: "GitHub Repo"}
     ];
 
     const nav = document.createElement("nav");

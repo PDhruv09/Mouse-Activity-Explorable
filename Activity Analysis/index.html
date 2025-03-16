@@ -11,70 +11,104 @@
     
     <header>
         <h1>Mouse Activity Analysis</h1>
-        <p>Exploring how mice activity levels fluctuate throughout the day.</p>
+        <p>Can we predict mouse activity levels based on biological and environmental factors? Does gender influence activity, and if so, why? Let's explore the patterns hidden in the data.</p>
     </header>
 
     <!-- Problem Introduction -->
     <section id="problem-intro">
-        <h2>The Problem</h2>
-        <p>Do male or female mice exhibit higher activity levels? Understanding their behavior can provide insights into circadian rhythms and health patterns.</p>
+        <h2>Introduction</h2>
+        <p>
+            Mice are nocturnal, meaning their activity should peak when the lights are off. 
+            <strong>But</strong> do males and females exhibit the same behavior? 
+            <strong>And</strong> how does the estrus cycle affect female activity?
+            <strong>Therefore</strong>, by analyzing their minute-by-minute movement, we can determine whether external factors influence activity patterns.
+        </p>
+    </section>
+
+    <section id="why-care">
+        <h2>Why Should We Care?</h2>
+        <p>
+            Activity levels provide crucial insights into the behavioral patterns of mice.  
+            <strong>And</strong> by understanding how and when mice are most active, researchers can study biological rhythms, energy expenditure, and potential health implications.  
+            <strong>But</strong> do these activity levels remain constant, or are they influenced by external factors like gender, light cycles, or hormonal changes?  
+            <strong>Therefore</strong>, analyzing activity fluctuations allows us to uncover key behavioral and physiological patterns that can inform future studies in neuroscience and medicine.
+        </p>
     </section>
 
     <!-- Static Visualization 1: Average Activity (Male vs. Female) -->
     <section id="static-visualization-1">
-        <h2>Average Activity of Male vs. Female Mice</h2>
-        <p>This graph shows the average activity level of male and female mice over a 24-hour period.</p>
+        <h2>Comparing Average Activity: Male vs. Female</h2>
+        <p>
+            The bar chart below compares the overall average activity levels of male and female mice across the dataset.
+            <strong>But</strong> does this tell the full story? Let's dig deeper.
+        </p>
         <div id="staticChart1"></div>
+        <p class="annotation">🔍 *Males appear slightly more active on average than females, but is this difference consistent across time?*</p>
     </section>
 
     <!-- Explanation of First Visualization -->
     <section id="explanation-1">
         <h2>Understanding the Trends</h2>
-        <p>From the graph, we can see whether males or females are generally more active and how their activity varies throughout the day.</p>
-    </section>
-
-    <!-- Digging Deeper -->
-    <section id="story-transition">
-        <h2>Why Look at Individual Mice?</h2>
-        <p>While averages are useful, they do not show individual variations. Some mice may be more active or inactive compared to their group.</p>
+        <p>
+            We see that males, on average, have a higher activity level than females.
+            <strong>But</strong> this does not account for variations over time. 
+            <strong>Therefore</strong>, we need to explore individual patterns to see if all mice follow this trend or if some outliers exist.
+        </p>
     </section>
 
     <!-- Static Visualization 2: Female Mice Activity -->
     <section id="static-visualization-2">
-        <h2>Female Mouse Activity Over Time</h2>
-        <p>Each line represents the activity of an individual female mouse, with the average highlighted. The most and least active mice are marked.</p>
+        <h2>How Active Are Female Mice Over Time?</h2>
+        <p>
+            This line plot tracks the activity of individual female mice over time.
+            <strong>But</strong> females go through an estrus cycle every four days, which could influence behavior.
+            <strong>Therefore</strong>, we should see fluctuations in activity that might correlate with their reproductive cycle.
+        </p>
         <div id="staticChart2"></div>
+        <p class="annotation">📌 *Notice the peaks in activity every few days? These could correspond with the estrus cycle, suggesting hormonal influence on behavior.*</p>
     </section>
 
     <!-- Explanation of Second Visualization -->
     <section id="explanation-2">
         <h2>Interpreting Female Mouse Activity</h2>
-        <p>Do female mice follow a general trend, or are there significant outliers? We can observe the lowest and highest activity mice compared to the average.</p>
+        <p>
+            The data suggests that female mice experience spikes in activity at regular intervals.
+            <strong>But</strong> is this a universal trend for all mice?
+            <strong>Therefore</strong>, we must examine the male mice's activity patterns for comparison.
+        </p>
     </section>
 
     <!-- Static Visualization 3: Male Mice Activity -->
     <section id="static-visualization-3">
-        <h2>Male Mouse Activity Over Time</h2>
-        <p>Each line represents the activity of an individual male mouse, with the average highlighted. The most and least active mice are marked.</p>
+        <h2>How Active Are Male Mice Over Time?</h2>
+        <p>
+            This graph represents the activity of individual male mice. Unlike females, males do not experience an estrus cycle.
+            <strong>But</strong> do they still show periodic fluctuations in activity?
+            <strong>Therefore</strong>, comparing male and female trends will help us isolate cycle-driven behaviors.
+        </p>
         <div id="staticChart3"></div>
+        <p class="annotation">🔬 *Male mice do not exhibit the same cyclical spikes in activity as females, suggesting estrus plays a major role in female behavior.*</p>
     </section>
 
     <!-- Explanation of Third Visualization -->
     <section id="explanation-3">
         <h2>Interpreting Male Mouse Activity</h2>
-        <p>Comparing individual male mice, do their activity levels align with the average, or do some stand out?</p>
-    </section>
-
-    <!-- Summary Comparison -->
-    <section id="summary-comparison">
-        <h2>Male vs. Female Activity: A Deeper Look</h2>
-        <p>Comparing the individual activity levels, do male and female mice show distinct behavioral differences?</p>
+        <p>
+            Unlike female mice, male mice display a relatively stable pattern of activity throughout the day.
+            <strong>But</strong> does this stability mean all males behave similarly?
+            <strong>Therefore</strong>, we introduce an interactive tool to explore individual patterns.
+        </p>
     </section>
 
     <!-- Interactive Visualization -->
     <section id="interactive-visualization">
         <h2>Explore Mouse Activity</h2>
-        <p>Select a gender and choose specific mice to compare. You can include or exclude the average activity.</p>
+        <p>
+            Select a gender and choose specific mice to compare their activity levels. 
+            <strong>But</strong> does the average reflect the reality of individual differences?
+            <strong>Therefore</strong>, by toggling different individuals, we can observe whether some mice are more active than others.
+        </p>
+
         <label for="genderSelector">Select Gender:</label>
         <select id="genderSelector">
             <option value="male">Male</option>
@@ -87,12 +121,18 @@
         <input type="checkbox" id="includeAllAverage"> Include Average of All
         
         <div id="interactiveChart"></div>
+        <p class="annotation">⚡ *Use the interactive chart to uncover patterns! Do some mice deviate from the average trend?*</p>
     </section>
 
     <!-- Final Insights -->
     <section id="final-insights">
         <h2>Summary of Findings</h2>
-        <p>Now that you have explored the data, what trends do you observe? Do your findings match expectations?</p>
+        <p>
+            Our initial question was whether gender impacts activity. 
+            <strong>And</strong> we found that while males are slightly more active on average, female activity is influenced by the estrus cycle.
+            <strong>But</strong> not all individuals follow the average trend.
+            <strong>Therefore</strong>, while general trends exist, individual variation remains a key factor in behavioral studies.
+        </p>
     </section>
     
     <script src="https://d3js.org/d3.v7.min.js"></script>
