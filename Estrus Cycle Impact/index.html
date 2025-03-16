@@ -14,34 +14,77 @@
         <p>Analyzing how the estrus cycle affects temperature and activity levels in female mice.</p>
     </header>
 
-    <!-- Story Introduction -->
-    <section id="story-intro">
-        <h2>Understanding the Estrus Cycle</h2>
-        <p>The estrus cycle plays a crucial role in regulating physiological patterns in female mice, affecting both temperature and activity levels.</p>
+    <!-- Problem Statement -->
+    <section id="problem-statement">
+        <h2>The Problem</h2>
+        <p>How do temperature and activity levels differ in female mice while on the Estrus Cycle versus off the Estrus Cycle?</p>
     </section>
 
-    <!-- Static Visualization Section -->
+    <!-- Why Should We Care -->
+    <section id="why-care">
+        <h2>Why Should We Care?</h2>
+        <p>Understanding these physiological changes can help in behavioral studies, medical research, and hormonal analysis.</p>
+    </section>
+
+    <!-- First Static Visualization: Average Temperature & Activity -->
     <section id="static-visualization">
-        <h2>Static Visualization: Temperature Changes During Estrus</h2>
-        <p>The chart below represents temperature variations in female mice during different phases of the estrus cycle.</p>
+        <h2>Average Temperature & Activity Levels</h2>
+        <p>This bar chart compares the average temperature and activity levels of female mice while on cycle vs. off cycle.</p>
         <div id="staticChart"></div>
     </section>
 
-    <!-- Transition Text -->
-    <section id="story-transition">
-        <h2>Unveiling the Patterns...</h2>
-        <p>Now that we see overall trends, let's interactively explore how estrus affects temperature and activity.</p>
+    <!-- Digging Deeper -->
+    <section id="digging-deeper">
+        <h2>Digging Deeper</h2>
+        <p>Now that we see the overall trends, let’s explore how individual mice behave.</p>
     </section>
 
-    <!-- Interactive Visualization Section -->
+    <!-- Individual Mouse Analysis - On Cycle -->
+    <section id="on-cycle-analysis">
+        <h2>Activity & Temperature of Individual Mice (On Cycle)</h2>
+        <p>This graph shows the temperature and activity of each mouse while on cycle, with each individual represented by a different color.</p>
+        <div id="onCycleChart"></div>
+    </section>
+
+    <!-- Individual Mouse Analysis - Off Cycle -->
+    <section id="off-cycle-analysis">
+        <h2>Activity & Temperature of Individual Mice (Off Cycle)</h2>
+        <p>This graph shows the temperature and activity of each mouse while off cycle, with each individual represented by a different color.</p>
+        <div id="offCycleChart"></div>
+    </section>
+
+    <!-- Final Exploration: Interactive Chart -->
     <section id="interactive-visualization">
-        <h2>Interactive Visualization: Estrus Cycle & Mouse Behavior</h2>
-        <p>Use the interactive chart below to analyze temperature and activity levels based on estrus phases.</p>
+        <h2>Explore the Data</h2>
+        <p>Use the dropdowns below to select cycle phase, temperature or activity, and compare different mice.</p>
+        
+        <label for="cycleSelect">Select Cycle Phase:</label>
+        <select id="cycleSelect">
+            <option value="On">On Cycle</option>
+            <option value="Off">Off Cycle</option>
+        </select>
+
+        <label for="dataTypeSelect">Select Data Type:</label>
+        <select id="dataTypeSelect">
+            <option value="Temperature">Temperature</option>
+            <option value="Activity">Activity</option>
+        </select>
+
+        <label for="mouseSelect">Select Mouse:</label>
+        <select id="mouseSelect" multiple>
+            <!-- Dynamically filled with JavaScript -->
+        </select>
+
+        <label>
+            <input type="checkbox" id="includeAverage"> Include Average
+        </label>
+
         <div id="interactiveChart"></div>
     </section>
     
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="../script.js"></script>
     <script src="estrus.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </body>
 </html>
