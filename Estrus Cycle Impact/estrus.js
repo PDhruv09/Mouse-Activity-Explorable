@@ -138,6 +138,13 @@ document.addEventListener("DOMContentLoaded", function () {
             .style("font-size", "14px")
             .text("Average Value");
 
+        svg.append("text")  
+            .attr("x", width-50)
+            .attr("y", - 10)
+            .attr("fill", "black")
+            .attr("font-size", "14px")
+            .text("Legend");
+
         // Legend (moved 30px to the right)
         const legend = svg.append("g")
         .attr("transform", `translate(${width - 60},${margin.top})`); // Adjusted x-position
@@ -270,6 +277,13 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("text-anchor", "middle")
             .attr("font-size", "14px")
             .text("Average Temperature (°C)");
+        
+        svg.append("text")  
+            .attr("x", width-50)
+            .attr("y", - 10)
+            .attr("fill", "black")
+            .attr("font-size", "14px")
+            .text("Legend");
 
         // Add legend
         const legend = svg.append("g")
@@ -402,6 +416,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 .attr("text-anchor", "middle")
                 .attr("font-size", "14px")
                 .text(selectedType === "Activity" ? "Average Activity Level" : "Average Temperature (°C)");
+            
+            svg.append("text")  
+                .attr("x", width-50)
+                .attr("y", - 10)
+                .attr("fill", "black")
+                .attr("font-size", "14px")
+                .text("Legend");
 
             // Add legend
             const legend = svg.append("g")

@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .attr("fill", "#000")
                 .text("Temperature (°C)");
 
-                svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
+            svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
                 .append("text")
                 .attr("x", width / 2)
                 .attr("y", 50)
@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .text("Minute");
 
             svg.append("text")  
-                .attr("x", width - 120)
-                .attr("y", 10)
+                .attr("x", width - 50)
+                .attr("y", 5)
                 .attr("fill", "black")
                 .attr("font-size", "14px")
                 .text("Legend");
@@ -88,9 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // Add Legend
             const legend = svg.append("g").attr("transform", `translate(${width - 100}, 10)`);
             legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", "blue");
-            legend.append("text").attr("x", 30).attr("y", 15).text("Male Dominant");
+            legend.append("text").attr("x", 30).attr("y", 25).text("Male Dominant");
             legend.append("rect").attr("width", 20).attr("height", 20).attr("y", 30).attr("fill", "red");
-            legend.append("text").attr("x", 30).attr("y", 45).text("Female Dominant");
+            legend.append("text").attr("x", 30).attr("y", 55).text("Female Dominant");
         }
         drawHeatmap(allData, "#averageTemperatureHeatmap");
 
@@ -143,14 +143,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 .text("Temperature (°C)");
 
             svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
-                .selectAll("text").attr("transform", "rotate(-45)").style("text-anchor", "end");
+                .selectAll("text")
+                .attr("transform", "rotate(-45)")
+                .style("text-anchor", "end");
+            
+            svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(xScale))
+                .append("text")
+                .attr("x", width / 2)
+                .attr("y", 50)
+                .attr("fill", "#000")
+                .text("Minute");
 
             svg.append("text")  
-                .attr("x", width - 120)
+                .attr("x", width)
                 .attr("y", 10)
                 .attr("fill", "black")
                 .attr("font-size", "14px")
                 .text("Legend");
+            
             // Draw overall average temperature line
             svg.append("line")
                 .attr("x1", 0)

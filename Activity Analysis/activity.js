@@ -129,6 +129,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 .attr("y", -margin.left + 15)
                 .attr("text-anchor", "middle")
                 .text("Average Activity Level");
+            
+            svg.append("text")  
+                .attr("x", width)
+                .attr("y", - 10)
+                .attr("fill", "black")
+                .attr("font-size", "14px")
+                .text("Legend");
         
             // Plot average lines for individual mice
             mouseAvgData.forEach(mouse => {
@@ -260,6 +267,13 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("y", -margin.left + 15)
             .attr("text-anchor", "middle")
             .text("Activity Level");
+        
+        svgInteractive.append("text")  
+            .attr("x", width-100)
+            .attr("y", - 10)
+            .attr("fill", "black")
+            .attr("font-size", "14px")
+            .text("Legend");
 
         // Plot average line per selected mouse
         selectedMice.forEach((mouseID, idx) => {
@@ -331,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
         svgInteractive.selectAll(".legend")
             .data(legendData)
             .enter().append("text")
-            .attr("x", width - 150)
+            .attr("x", width - 100)
             .attr("y", (_, i) => 20 + i * 20)
             .attr("fill", (_, i) => i < selectedMice.length ? d3.schemeCategory10[i % 10] : (legendData[i] === "Selected Mice Avg" ? "grey" : "black"))
             .text(d => d);
