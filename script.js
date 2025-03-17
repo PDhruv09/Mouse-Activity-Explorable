@@ -12,12 +12,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // ✅ Function to generate the navigation bar
 function generateNavigation() {
+    // const rootPath = "/Mouse-Activity-Explorable/";
+    // const pages = [
+    //     { url: "index.html", title: "Home" },
+    //     { url: "Activity Analysis/index.html", title: "Activity Levels" },
+    //     { url: "Temperature Analysis/index.html", title: "Temperature Changes" },
+    //     { url: "Estrus Cycle Impact/index.html", title: "Estrus Cycle Effect" },
+    //     { url: "https://github.com/PDhruv09/Mouse-Activity-Explorable", title: "GitHub Repo"}
+    // ];
+
+    // const nav = document.createElement("nav");
+    // nav.id = "navbar";
+
+    // pages.forEach((page) => {
+    //     let url = page.url.startsWith("http") ? page.url : rootPath + page.url;
+    //     const a = document.createElement("a");
+    //     a.href = url;
+    //     a.textContent = page.title;
+    //     if (new URL(a.href, location.origin).href === location.href) {
+    //         a.classList.add("current");
+    //     }
+    //     if (a.host !== location.host) {
+    //         a.target = "_blank";
+    //     }
+    //     nav.appendChild(a);
+    // });
+
+    // document.body.prepend(nav);
     const rootPath = "/Mouse-Activity-Explorable/";
     const pages = [
         { url: "index.html", title: "Home" },
-        { url: "Activity Analysis/index.html", title: "Activity Levels" },
-        { url: "Temperature Analysis/index.html", title: "Temperature Changes" },
-        { url: "Estrus Cycle Impact/index.html", title: "Estrus Cycle Effect" },
+        { url: "Activity Analysis/", title: "Activity Levels" },
+        { url: "Temperature Analysis/", title: "Temperature Changes" },
+        { url: "Estrus Cycle Impact/", title: "Estrus Cycle Effect" },
         { url: "https://github.com/PDhruv09/Mouse-Activity-Explorable", title: "GitHub Repo"}
     ];
 
@@ -26,9 +53,16 @@ function generateNavigation() {
 
     pages.forEach((page) => {
         let url = page.url.startsWith("http") ? page.url : rootPath + page.url;
+
+        // Ensure trailing slash for folders (GitHub Pages will load index.html automatically)
+        if (!page.url.startsWith("http") && !page.url.includes(".")) {
+            url = url.replace(/\/?$/, "/"); // Ensure it ends with a slash
+        }
+
         const a = document.createElement("a");
         a.href = url;
         a.textContent = page.title;
+
         if (new URL(a.href, location.origin).href === location.href) {
             a.classList.add("current");
         }
